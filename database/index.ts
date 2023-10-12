@@ -25,7 +25,7 @@ app.post("/users",(req,res)=>{
 })
 
 app.get("*",(req,res)=>{
-    res.sendFile(__dirname + "/dist/index.html")
+    res.sendFile("C:/Users/elosc/Documents/APX/ppt-online-db/dist/index.html")
 });
 
 
