@@ -1,8 +1,9 @@
 import * as express from "express"
+import * as path from "path";
 const app = express()
 const port = process.env.PORT || 3000;
 
-app.use(express.static("dist"))
+app.use(express.static("../dist"))
 
 app.get("/users",(req,res)=>{
     res.json({
@@ -24,8 +25,10 @@ app.post("/users",(req,res)=>{
     })
 })
 
-app.get("*",(req,res)=>{
-    res.sendFile("C:/Users/elosc/Documents/APX/ppt-online-db/dist/index.html")
+app.get("*", (req, res) => {
+    // Usa path.resolve para obtener la ruta absoluta al archivo HTML
+    const indexPath = path.resolve(__dirname, "../dist/index.html");
+    res.sendFile(indexPath);
 });
 
 

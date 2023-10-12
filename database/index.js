@@ -1,9 +1,10 @@
 "use strict";
 Object.defineProperty(exports, "__esModule", { value: true });
 var express = require("express");
+var path = require("path");
 var app = express();
-var port = 3002;
-app.use(express.static("dist"));
+var port = process.env.PORT || 3000;
+app.use(express.static("../dist"));
 app.get("/users", function (req, res) {
     res.json({
         users: []
@@ -21,7 +22,9 @@ app.post("/users", function (req, res) {
     });
 });
 app.get("*", function (req, res) {
-    res.sendFile("C:/Users/elosc/Documents/APX/ppt-online-db/dist/index.html");
+    // Usa path.resolve para obtener la ruta absoluta al archivo HTML
+    var indexPath = path.resolve(__dirname, "../dist/index.html");
+    res.sendFile(indexPath);
 });
 app.listen(port, function () {
     console.log("corriendo en ", port);
