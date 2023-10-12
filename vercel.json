@@ -1,5 +1,7 @@
 {
     "rewrites": [
+      { "source": "/users", "destination": "/users" },
+      { "source": "/users/:userId/products", "destination": "/users/:userId/products" },
       { "source": "/(.*)", "destination": "/index.html" }
     ]
   }
