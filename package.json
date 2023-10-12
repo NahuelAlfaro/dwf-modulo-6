@@ -19,8 +19,8 @@
   "scripts": {
     "dev:front": "parcel serve ./src/index.html",
     "dev:back": "nodemon --watch index.ts --exec ts-node dev.ts",
-    "build:front": "parcel build ./src/index.html",
-    "build:back": "tsc --resolveJsonModule --skipLibCheck index.ts",
+    "build:front": "parcel build src/index.html",
+    "build:back": "tsc index.ts",
     "build": "npm run build:front && npm run build:back",
     "start": "node index.js"
   },
