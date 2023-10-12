@@ -22,7 +22,7 @@
     "build:front": "parcel build src/index.html",
     "build:back": "tsc database/index.ts",
     "build": "npm run build:front && npm run build:back",
-    "start": "node database/index.js"
+    "start": "node  database/index.js"
   },
   "devDependencies": {
     "process": "^0.11.10"
