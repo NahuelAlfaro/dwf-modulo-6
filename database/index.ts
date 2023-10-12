@@ -11,6 +11,11 @@ app.get("/users",(req,res)=>{
     })
 })
 
+app.get("/test", (req, res) => {
+    res.send("¡El servidor está funcionando correctamente en Vercel!");
+});
+
+
 app.get("/users/:userId/products",(req,res)=>{
     res.json({
         products:[]
