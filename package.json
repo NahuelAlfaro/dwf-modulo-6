@@ -2,7 +2,10 @@
   "scripts": {
     "dev:front": "parcel serve ./src/index.html",
     "dev": "nodemon --watch ./index.ts --exec ts-node index.ts",
-    "build": "parcel build ./src/index.html"
+    "build:front": "parcel build ./src/index.html",
+    "build:back": "tsc ./index.ts",
+    "build":"npm run build:front && npm run build:back",
+    "start":"node index.js"
   },
   "keywords": [],
   "author": "",
