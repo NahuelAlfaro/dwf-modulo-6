@@ -2,7 +2,7 @@ import * as express from "express"
 const app = express()
 const port = 3000
 
-
+app.use(express.static("dist"))
 
 app.get("/users",(req,res)=>{
     res.json({
@@ -24,7 +24,10 @@ app.post("/users",(req,res)=>{
     })
 })
 
-app.use(express.static("dist"))
+app.get("*",(req,res)=>{
+    res.sendFile(__dirname + "/dist/index.html")
+})
+
 
 app.listen(port,()=>{
     console.log("corriendo en ",port)
