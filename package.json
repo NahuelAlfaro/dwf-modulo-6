@@ -18,9 +18,9 @@
   },
   "scripts": {
     "dev:front": "parcel serve ./src/index.html",
-    "dev:back": "nodemon --watch index.ts --exec ts-node dev.ts",
+    "dev:back": "nodemon --watch ./database/index.ts --exec ts-node ./database/index.ts",
     "build:front": "parcel build src/index.html",
-    "build:back": "tsc index.ts",
+    "build:back": "tsc database/index.ts",
     "build": "npm run build:front && npm run build:back",
     "start": "node index.js"
   },

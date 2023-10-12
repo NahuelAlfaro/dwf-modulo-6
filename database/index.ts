@@ -1,6 +1,6 @@
 import * as express from "express"
 const app = express()
-const port = 3000
+const port = 3002
 
 app.use(express.static("dist"))
 
@@ -26,7 +26,7 @@ app.post("/users",(req,res)=>{
 
 app.get("*",(req,res)=>{
     res.sendFile(__dirname + "/dist/index.html")
-})
+});
 
 
 app.listen(port,()=>{
