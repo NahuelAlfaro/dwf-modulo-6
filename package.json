@@ -4,7 +4,7 @@
   "license": "MIT",
   "dependencies": {
     "@types/node": "^20.8.2",
-    "@vaadin/vaadin": "^24.1.12",
+    "@vaadin/router": "^1.7.4",
     "cors": "^2.8.5",
     "dotenv": "^16.3.1",
     "express": "^4.18.2",
@@ -25,6 +25,7 @@
     "start": "node  database/index.js"
   },
   "devDependencies": {
+    "@types/cors": "^2.8.14",
     "assert": "^2.1.0",
     "browserify-zlib": "^0.2.0",
     "buffer": "^6.0.3",
