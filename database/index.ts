@@ -1,10 +1,11 @@
 import * as express from "express"
 import * as path from "path";
+import * as cors from "cors";
 const app = express()
 const port = process.env.PORT || 3000;
 
 app.use(express.static(path.resolve(__dirname, 'dist')));
-
+app.use(cors)
 app.get("/users",(req,res)=>{
     console.log("se recibio la info")
     res.json({
