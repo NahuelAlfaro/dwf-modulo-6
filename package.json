@@ -8,7 +8,7 @@
     "cors": "^2.8.5",
     "dotenv": "^16.3.1",
     "express": "^4.18.2",
-    "firebase": "8.7.1",
+    "firebase": "^8.10.1",
     "firebase-admin": "^11.11.0",
     "lodash": "^4.17.21",
     "nodemon": "^3.0.1",
@@ -22,9 +22,20 @@
     "build:front": "parcel build src/index.html",
     "build:back": "tsc database/index.ts",
     "build": "npm run build:front && npm run build:back",
-    "start": "node index.js"
+    "start": "node  database/index.js"
   },
   "devDependencies": {
-    "process": "^0.11.10"
+    "assert": "^2.1.0",
+    "browserify-zlib": "^0.2.0",
+    "buffer": "^6.0.3",
+    "crypto-browserify": "^3.12.0",
+    "events": "^3.3.0",
+    "path-browserify": "^1.0.1",
+    "process": "^0.11.10",
+    "querystring-es3": "^0.2.1",
+    "stream-browserify": "^3.0.0",
+    "stream-http": "^3.2.0",
+    "url": "^0.11.3",
+    "util": "^0.12.5"
   }
 }
