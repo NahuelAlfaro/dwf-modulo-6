@@ -6,6 +6,7 @@ const port = process.env.PORT || 3000;
 app.use(express.static(path.resolve(__dirname, 'dist')));
 
 app.get("/users",(req,res)=>{
+    console.log("se recibio la info")
     res.json({
         users:[]
     })
