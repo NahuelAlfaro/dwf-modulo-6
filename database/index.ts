@@ -2,7 +2,7 @@ import * as express from "express"
 import * as path from "path";
 import * as cors from "cors";
 const app = express()
-const port = "https://dwf-modulo-6-78cojrtvx-nahuelalfaros-projects.vercel.app/"
+const port = process.env.PORT || 3000;
 
 app.use(express.static(path.resolve(__dirname, 'dist')));
 app.use(cors());
