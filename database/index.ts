@@ -13,7 +13,7 @@ app.get("/users",(req,res)=>{
     })
 })
 
-app.get("/test", (req, res) => {
+app.get("/test", async (req, res) => {
     res.send("¡El servidor está funcionando correctamente en Vercel!");
 });
 

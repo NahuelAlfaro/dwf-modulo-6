@@ -2,13 +2,19 @@
 Object.defineProperty(exports, "__esModule", { value: true });
 var express = require("express");
 var path = require("path");
+var cors = require("cors");
 var app = express();
 var port = process.env.PORT || 3000;
-app.use(express.static("../dist"));
+app.use(express.static(path.resolve(__dirname, 'dist')));
+app.use(cors());
 app.get("/users", function (req, res) {
+    console.log("se recibio la info");
     res.json({
         users: []
     });
+});
+app.get("/test", function (req, res) {
+    res.send("¡El servidor está funcionando correctamente en Vercel!");
 });
 app.get("/users/:userId/products", function (req, res) {
     res.json({
