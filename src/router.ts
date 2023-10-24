@@ -4,6 +4,7 @@ import { win } from "./pages/win";
 import { lose } from "./pages/lose";
 import { tie } from "./pages/tie";
 import { welcome } from "./pages/welcome";
+import { state } from "./state";
 
 const BASE_PATH = "localhost";
 
@@ -32,41 +33,28 @@ const routes = [{
     component: tie
 }]
 
-function githubPages() {
-    return location.host.includes("github.io");
-}
-
-export function initRouter(container: any) {
-    function goTo(path) {
-
-        const completePath = githubPages() ? BASE_PATH + path : path;
-
-        history.pushState({}, "", completePath);
-        handleRoute(completePath);
+export function initRouter(container:Element){
+    function goTo(path){
+        history.pushState({},"",path);
+        handleRoute(path);
     }
-    function handleRoute(route) {
-        const newRoute = githubPages() ? route.replace(BASE_PATH, "") : route;
+    function handleRoute(route){
+        console.log("el route se recibio",route);
 
+        for (const r of routes){
+            if(r.path.test(route)){
+                const el = r.component({goTo:goTo});
 
-        for (const r of routes) {
-            if (r.path.test(newRoute)) {
-                const el: any = r.component({ goTo: goTo });
-                if (container.firstChild) {
-                    container.firstChild.remove();
+                if(container.firstChild){
+                    container.firstChild.remove()
                 }
-                container.appendChild(el);
+                container.appendChild(el)
             }
         }
-
     }
-    if (location.host.includes("github.io")) {
-        goTo("/welcome");
-    } else if (location.pathname == "/") {
-        goTo("/welcome");
-    } else {
+    if(location.pathname == "/"){
+        goTo("/welcome")
+    }else{
         handleRoute(location.pathname)
-    }
-    window.onpopstate = function () {
-        handleRoute(location.pathname);
     }
 }
