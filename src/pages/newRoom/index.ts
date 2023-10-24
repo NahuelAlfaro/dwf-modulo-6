@@ -1,9 +1,9 @@
-export function welcome(routh) {
+export function newRoom(routh) {
     const div = document.createElement("div");
     div.innerHTML = `
-        <welcome-title></welcome-title>
-        <start-button class="newRoomButton" title="Nuevo Juego"></start-button>
-        <start-button class="roomButton" title="Ingresar a Sala"></start-button>
+        <h1>Comparti el codigo:</h1>
+        <h3>Codigo</h3>
+        <h2>Con tu contrincante</h2>
         <div class="plays">
             <my-rock></my-rock>
             <my-paper></my-paper>
@@ -21,23 +21,33 @@ export function welcome(routh) {
             position: relative;
             top: 10px;
         }
+
+        h1, h2, h3{
+            font-family: 'Odibee Sans';
+        }
+        h1{
+            font-size: 55px
+        }
+        h3{
+            font-size: 68px
+        }
+        h2{
+            font-size: 45px
+        }
+
         .container{
             display: flex;
             flex-direction: column;
-            justify-content: space-between;
+            gap: 5vh;
             align-items: center;
             height: 98vh;
-            padding: 85px 0 0 0;
+            padding: 60px 0 0 0;
         }
         `
     function startGame() {
-        const newRoomButton = div.querySelector(".newRoomButton");
-        newRoomButton?.addEventListener("click", (e) => {
-            routh.goTo("/newRoom");
-        })
-        const eRoomButton = div.querySelector(".roomButton");
-        eRoomButton?.addEventListener("click", (e) => {
-            routh.goTo("/eRoom");
+        const startButton = div.querySelector(".sButton");
+        startButton?.addEventListener("click", (e) => {
+            routh.goTo("/welcome");
         })
 
     }

@@ -37,7 +37,7 @@ export function rules(routh) {
     function startGame() {
         const startButton = div.querySelector(".sButton");
         startButton?.addEventListener("click", () => {
-            routh.goTo("/play");
+            routh.goTo("/wait");
         })
     }
     startGame();

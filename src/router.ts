@@ -4,6 +4,10 @@ import { win } from "./pages/win";
 import { lose } from "./pages/lose";
 import { tie } from "./pages/tie";
 import { welcome } from "./pages/welcome";
+import { name } from "./pages/name";
+import { eRoom } from "./pages/eRoom";
+import { newRoom } from "./pages/newRoom";
+import { wait } from "./pages/wait";
 import { state } from "./state";
 
 const BASE_PATH = "localhost";
@@ -31,7 +35,24 @@ const routes = [{
 {
     path: /\/tie/,
     component: tie
-}]
+},
+{
+    path: /\/name/,
+    component: name
+},
+{
+    path: /\/eRoom/,
+    component: eRoom
+},
+{
+    path: /\/newRoom/,
+    component: newRoom
+},
+{
+    path: /\/wait/,
+    component: wait
+},
+]
 
 export function initRouter(container:Element){
     function goTo(path){
@@ -53,7 +74,7 @@ export function initRouter(container:Element){
         }
     }
     if(location.pathname == "/"){
-        goTo("/welcome")
+        goTo("/name")
     }else{
         handleRoute(location.pathname)
     }

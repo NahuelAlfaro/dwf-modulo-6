@@ -1,9 +1,10 @@
-export function welcome(routh) {
+export function name(routh) {
     const div = document.createElement("div");
     div.innerHTML = `
         <welcome-title></welcome-title>
-        <start-button class="newRoomButton" title="Nuevo Juego"></start-button>
-        <start-button class="roomButton" title="Ingresar a Sala"></start-button>
+        <label class="nameLabel" for="name">Nombre</label>
+        <input class="name" id="name" type="text">
+        <start-button class="sButton" title="Empezar"></start-button>
         <div class="plays">
             <my-rock></my-rock>
             <my-paper></my-paper>
@@ -21,23 +22,35 @@ export function welcome(routh) {
             position: relative;
             top: 10px;
         }
+
+        .nameLabel{
+            font-size:40px;
+            font-family: 'Odibee Sans';
+        }
+
+        .name{
+            border: 10px solid #001997;
+            border-radius: 10px;
+            width: 322px;
+            height: 57px;
+            font-size: 28px;
+            font-family: 'Odibee Sans';
+            margin-top:-3vh;
+        }
+
         .container{
             display: flex;
             flex-direction: column;
-            justify-content: space-between;
+            gap: 5vh;
             align-items: center;
             height: 98vh;
             padding: 85px 0 0 0;
         }
         `
     function startGame() {
-        const newRoomButton = div.querySelector(".newRoomButton");
-        newRoomButton?.addEventListener("click", (e) => {
-            routh.goTo("/newRoom");
-        })
-        const eRoomButton = div.querySelector(".roomButton");
-        eRoomButton?.addEventListener("click", (e) => {
-            routh.goTo("/eRoom");
+        const startButton = div.querySelector(".sButton");
+        startButton?.addEventListener("click", (e) => {
+            routh.goTo("/welcome");
         })
 
     }
